@@ -41,8 +41,10 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")
     return(this_inverse_matrix)
   }
+  ##the inverse has not been found, so calculate it
   data <- x$get()
   this_inverse_matrix <- solve(data, ...)
+  ##not store/cache it for later use
   x$setinverse(this_inverse_matrix)
   this_inverse_matrix
 }
